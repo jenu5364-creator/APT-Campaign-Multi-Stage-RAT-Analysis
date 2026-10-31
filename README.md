@@ -1,48 +1,133 @@
  APT Campaign & Multi-Stage RAT Analysis
 
-Project Overview
-This project focuses on understanding Advanced Persistent Threat (APT) campaigns and analysing the behaviour of Remote Access Trojans (RATs), with a case study of Remcos RAT.
+ Project Overview
 
-It explores multi-stage malware delivery, PowerShell-based execution, Command and Control (C2) communication, and MITRE ATT&CK mapping.
+This project is an educational cybersecurity study of a multi-stage
+threat campaign using **Remcos Remote Access Trojan (RAT)** as the
+case-study malware. It explains the attack lifecycle, maps possible
+attacker behaviours to the MITRE ATT&CK framework, and demonstrates how
+command-and-control (C2) beaconing patterns may be identified from
+sample network logs.
 
-Project Details
-Project Title:** APT Campaign & Multi-Stage RAT Analysis
+**Important:** This project uses simulated network traffic and
+illustrative examples. It does not execute Remcos, connect to a real C2
+server, or analyse a live infected system.
 
- Aim
-To study the techniques used in multi-stage malware campaigns and understand how Remcos RAT communicates with Command and Control infrastructure.
+Project Objectives
 
-Objectives
-1. Understand APT campaigns and multi-stage attacks.
-2. Study the behaviour and characteristics of Remcos RAT.
-3. Understand PowerShell-based execution and evasion techniques.
-4. Analyse C2 beaconing patterns.
-5. Map observed behaviours to the MITRE ATT&CK framework.
-6. Identify possible detection and prevention methods.
+-   Understand the stages of a multi-stage RAT attack.
+-   Study Remcos RAT capabilities and associated security risks.
+-   Map relevant behaviours to MITRE ATT&CK techniques.
+-   Explain C2 architecture and periodic beaconing.
+-   Demonstrate basic beaconing detection using Python.
+-   Analyse sample network logs and identify repeated connections.
 
- Tools and Technologies
-- MITRE ATT&CK
-- Wireshark
-- VirusTotal
-- MalwareBazaar
-- Google Threat Intelligence
-- Windows Event Viewer
+ Project Contents
 
- Main Project Areas
-- APT Campaign Analysis
-- Multi-Stage Malware Behaviour
-- Remcos RAT Case Study
-- MITRE ATT&CK Mapping
-- C2 Beaconing Architecture
-- Threat Detection and Prevention
+  -----------------------------------------------------------------------
+  File                                Description
+  ----------------------------------- -----------------------------------
+  `index.html`                        Project website with explanations,
+                                      architecture, ATT&CK mapping, and
+                                      simulated demonstrations
 
- Expected Outcome
-The project aims to improve understanding of malware behaviour, network communication patterns, attack techniques, and cybersecurity threat detection.
+  `detect_beaconing.py`               Python script that checks
+                                      connection intervals for possible
+                                      beacon-like patterns
 
- Safety Notice
-This is an educational cybersecurity research project. Malware samples must not be executed on personal or college systems. Analysis should use safe, authorised and isolated environments.
+  `analyse_traffic.py`                Python script that summarises
+                                      sample network traffic and repeated
+                                      destinations
 
- References
-- https://attack.mitre.org/
-- https://bazaar.abuse.ch/
-- https://www.virustotal.com/
-- https://www.wireshark.org/
+  `sample_network_logs.csv`           Synthetic network-log dataset used
+                                      by the Python scripts
+  -----------------------------------------------------------------------
+
+All files are stored in the repository root directory.
+
+## Technologies and Tools
+
+-   HTML, CSS, and JavaScript -- project website and browser-based
+    demonstrations
+-   Python -- sample log analysis and beaconing detection
+-   CSV -- sample network traffic data
+-   MITRE ATT&CK -- attacker behaviour classification
+-   GitHub and GitHub Pages -- source-code hosting and website
+    publication
+
+ How to Run the Python Scripts
+
+ Requirements
+
+-   Python 3 installed
+-   The project files downloaded or cloned to the same folder
+
+ Steps
+
+1.  Open a terminal in the project folder.
+
+2.  Run the beaconing detection script:
+
+    ``` bash
+    python detect_beaconing.py
+    ```
+
+3.  Run the traffic analysis script:
+
+    ``` bash
+    python analyse_traffic.py
+    ```
+
+The scripts read `sample_network_logs.csv` from the same folder. If your
+scripts use a different file path, update the path to match the location
+of the CSV file.
+
+## Understanding the Demonstrations
+
+-   **C2 Beaconing Detection:** Uses synthetic timestamps to calculate
+    intervals between repeated connections. Regular intervals may
+    indicate beacon-like behaviour, but this alone is not proof of
+    malware.
+-   **Network Traffic Analysis:** Counts sample log entries and
+    highlights destinations that appear repeatedly.
+-   **Monitoring Dashboard:** Displays illustrative statistics for
+    learning purposes; it is not connected to a live monitoring system.
+
+## MITRE ATT&CK Mapping
+
+The website discusses selected techniques that may be relevant to stages
+of a RAT campaign. Technique mappings are illustrative and should be
+validated against evidence from a specific sample or incident before
+being treated as confirmed findings.
+
+Reference: [MITRE ATT&CK](https://attack.mitre.org/)
+
+## Project Website
+
+-   GitHub repository:
+    https://github.com/jenu5364-creator/APT-Campaign-Multi-Stage-RAT-Analysis/
+-   GitHub Pages website:
+    https://jenu5364-creator.github.io/APT-Campaign-Multi-Stage-RAT-Analysis/
+
+## Project Role
+
+**Project Lead:** Janifar J.\
+**Assigned Role:** Lead Architect -- ATT&CK Mapping & C2 Beaconing
+Architecture
+
+## Learning Outcomes
+
+-   Improved understanding of RAT attack stages and C2 communication.
+-   Practised basic Python-based network-log analysis.
+-   Learned to interpret repeated connection intervals.
+-   Applied MITRE ATT&CK to organise observed or hypothesised
+    behaviours.
+-   Developed a simple cybersecurity project website.
+
+## Disclaimer
+
+This project is created for academic and educational purposes only. The
+dataset and demonstrations are simulated. Do not use malware or testing
+techniques against systems without proper authorisation. The project
+does not provide evidence that a real Remcos infection or live C2
+operation has occurred.
