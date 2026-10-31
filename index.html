@@ -530,6 +530,128 @@ function detectBeaconing() {
 </section>
 <!-- END MITRE ATT&CK SECTION -->
 
+<!-- COMPLETE CYBERSECURITY DASHBOARD -->
+<section id="dashboard">
+    <h2>Cybersecurity Monitoring Dashboard</h2>
+    <p>Monitor simulated network activity and identify potential security threats.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px;">
+
+        <div class="card">
+            <h3>Total Connections</h3>
+            <h1 id="totalConnections" style="color:#00d9ff;">4</h1>
+        </div>
+
+        <div class="card">
+            <h3>Suspicious Connections</h3>
+            <h1 id="suspiciousConnections" style="color:#ff6464;">3</h1>
+        </div>
+
+        <div class="card">
+            <h3>Beaconing Alerts</h3>
+            <h1 id="beaconAlerts" style="color:#ffb347;">1</h1>
+        </div>
+
+        <div class="card">
+            <h3>Security Status</h3>
+            <h2 id="securityStatus" style="color:#ff6464;">Warning</h2>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Security Activity Analysis</h3>
+        <p>Click the button to analyse simulated network activity.</p>
+
+        <button class="btn" onclick="runDashboardAnalysis()">
+            Run Security Analysis
+        </button>
+
+        <div id="dashboardOutput" style="margin-top:20px;">
+            <p>Waiting for analysis...</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Security Alerts</h3>
+
+        <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;text-align:left;">
+                <tr style="background:#10365a;color:#00d9ff;">
+                    <th style="padding:12px;">Alert</th>
+                    <th style="padding:12px;">Description</th>
+                    <th style="padding:12px;">Severity</th>
+                </tr>
+
+                <tr>
+                    <td style="padding:12px;">C2 Beaconing</td>
+                    <td style="padding:12px;">Regular 30-second connection intervals</td>
+                    <td style="padding:12px;color:#ff6464;">High</td>
+                </tr>
+
+                <tr>
+                    <td style="padding:12px;">Unusual Connection</td>
+                    <td style="padding:12px;">Repeated connection to one destination</td>
+                    <td style="padding:12px;color:#ffb347;">Medium</td>
+                </tr>
+
+                <tr>
+                    <td style="padding:12px;">Network Monitoring</td>
+                    <td style="padding:12px;">Review network and process logs</td>
+                    <td style="padding:12px;color:#00d9ff;">Informational</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <p><small>Educational simulation using sample data only. Alerts are indicators for investigation, not proof of malware infection.</small></p>
+</section>
+
+<script>
+function runDashboardAnalysis() {
+
+    const connections = 4;
+    const suspicious = 3;
+    const beaconing = 1;
+
+    document.getElementById("totalConnections").textContent = connections;
+    document.getElementById("suspiciousConnections").textContent = suspicious;
+    document.getElementById("beaconAlerts").textContent = beaconing;
+
+    document.getElementById("securityStatus").textContent = "Warning";
+
+    document.getElementById("dashboardOutput").innerHTML = `
+        <h3 style="color:#00d9ff;">Analysis Completed</h3>
+
+        <p>Total connections analysed: 4</p>
+        <p>Suspicious connections: 3</p>
+        <p>Possible beaconing alerts: 1</p>
+
+        <h3 style="color:#ff6464;">
+            Potential Suspicious Activity Detected!
+        </h3>
+
+        <p>Recommended actions:</p>
+        <ul>
+            <li>Investigate repeated network connections.</li>
+            <li>Review source and destination IP addresses.</li>
+            <li>Check process execution and system logs.</li>
+            <li>Correlate network events with MITRE ATT&CK techniques.</li>
+        </ul>
+    `;
+}
+
+// Automatically add dashboard navigation link
+const nav = document.querySelector("nav");
+
+if (nav && !document.querySelector('nav a[href="#dashboard"]')) {
+    const link = document.createElement("a");
+    link.href = "#dashboard";
+    link.textContent = "Dashboard";
+    nav.appendChild(link);
+}
+</script>
+<!-- END CYBERSECURITY DASHBOARD -->
+
 
 </body>
 </html>
