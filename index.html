@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APT Campaign & Multi-Stage RAT Analysis</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: white;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #111c33;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00d4ff;
+        }
+
+        header h1 {
+            color: #00d4ff;
+        }
+
+        nav {
+            background: #17243b;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #10213d, #142d4d);
+        }
+
+        .hero h2 {
+            font-size: 35px;
+            color: #00d4ff;
+        }
+
+        .hero p {
+            margin: 20px auto;
+            max-width: 700px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00a8cc;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        section {
+            padding: 45px 10%;
+        }
+
+        section h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #17243b;
+            padding: 22px;
+            border-radius: 10px;
+            border: 1px solid #29415e;
+        }
+
+        .card h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #111c33;
+            text-align: center;
+            padding: 25px;
+            color: #b8c7d9;
+        }
+
+        @media(max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .hero h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Cybersecurity Project</h1>
+    <p>APT Campaign & Multi-Stage RAT Analysis</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#remcos">Remcos RAT</a>
+    <a href="#attack">Attack Lifecycle</a>
+    <a href="#mitre">MITRE ATT&CK</a>
+    <a href="#c2">C2 Analysis</a>
+    <a href="#tools">Tools</a>
+    <a href="#conclusion">Conclusion</a>
+</nav>
+
+<div class="hero" id="home">
+    <h2>APT Campaign & Multi-Stage RAT Analysis</h2>
+    <p>
+        An educational cybersecurity project exploring APT campaigns,
+        Remcos RAT behaviour, multi-stage attacks, MITRE ATT&CK mapping
+        and Command and Control communication.
+    </p>
+    <a href="#about" class="btn">Explore Project</a>
+</div>
+
+<section id="about">
+    <h2>About the Project</h2>
+    <p>
+        This project studies Advanced Persistent Threat campaigns
+        and multi-stage malware attacks using Remcos RAT as a case study.
+        It focuses on understanding malware behaviour and identifying
+        possible cybersecurity detection techniques.
+    </p>
+
+    <h3>Project Lead: Janifar J.</h3>
+    <p>Register Number: 24BCAB212</p>
+
+    <h3>Aim</h3>
+    <p>
+        To understand multi-stage malware behaviour, C2 communication
+        and MITRE ATT&CK techniques.
+    </p>
+</section>
+
+<section id="remcos">
+    <h2>Remcos RAT Case Study</h2>
+    <div class="card">
+        <h3>What is Remcos RAT?</h3>
+        <p>
+            Remcos is a Remote Access Trojan that can provide an attacker
+            with remote control capabilities over a compromised system.
+            It may be abused for surveillance, data theft and other
+            malicious activities.
+        </p>
+    </div>
+</section>
+
+<section id="attack">
+    <h2>Multi-Stage Attack Lifecycle</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Stage 1: Initial Access</h3>
+            <p>An attacker may use phishing to deliver a malicious file.</p>
+        </div>
+
+        <div class="card">
+            <h3>Stage 2: Downloader</h3>
+            <p>A downloader may retrieve additional malicious components.</p>
+        </div>
+
+        <div class="card">
+            <h3>Stage 3: Execution</h3>
+            <p>Malicious scripts or processes may execute on the system.</p>
+        </div>
+
+        <div class="card">
+            <h3>Stage 4: C2 Communication</h3>
+            <p>The compromised system may communicate with attacker infrastructure.</p>
+        </div>
+    </div>
+    <p><small>Illustrative attack lifecycle; verify each stage against your case-study evidence.</small></p>
+</section>
+
+<section id="mitre">
+    <h2>MITRE ATT&CK Mapping</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>T1566 – Phishing</h3>
+            <p>Possible initial access technique.</p>
+        </div>
+
+        <div class="card">
+            <h3>T1059.001 – PowerShell</h3>
+            <p>Command and scripting interpreter.</p>
+        </div>
+
+        <div class="card">
+            <h3>T1055 – Process Injection</h3>
+            <p>A technique that may be used to execute code within another process.</p>
+        </div>
+    </div>
+    <p><small>These are candidate techniques, not confirmed findings. Validate them using evidence from the analysed sample.</small></p>
+</section>
+
+<section id="c2">
+    <h2>C2 Beaconing Analysis</h2>
+    <div class="card">
+        <h3>Command and Control (C2)</h3>
+        <p>
+            C2 communication allows malware to communicate with
+            attacker-controlled infrastructure. Repeated outbound
+            network connections at regular intervals may indicate
+            beaconing behaviour.
+        </p>
+        <p>
+            Network traffic can be studied using Wireshark in an
+            authorised and isolated analysis environment.
+        </p>
+    </div>
+</section>
+
+<section id="tools">
+    <h2>Tools and Technologies</h2>
+    <div class="card-container">
+        <div class="card"><h3>Wireshark</h3><p>Network traffic analysis.</p></div>
+        <div class="card"><h3>VirusTotal</h3><p>File and URL reputation research.</p></div>
+        <div class="card"><h3>MalwareBazaar</h3><p>Malware sample research.</p></div>
+        <div class="card"><h3>MITRE ATT&CK</h3><p>Adversary technique mapping.</p></div>
+    </div>
+</section>
+
+<section id="conclusion">
+    <h2>Conclusion</h2>
+    <p>
+        This project develops an understanding of APT campaigns,
+        Remcos RAT behaviour, network communication and threat detection.
+        It also highlights the importance of monitoring, security awareness
+        and defensive cybersecurity practices.
+    </p>
+</section>
+
+<footer>
+    <p>APT Campaign & Multi-Stage RAT Analysis</p>
+    <p>Academic Cybersecurity Project | Group 1</p>
+    <p>Project Lead: Janifar J.</p>
+</footer>
+
+</body>
+</html>
