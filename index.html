@@ -349,6 +349,43 @@ function detectBeaconing() {
 }
 </script>
 <!-- END C2 BEACONING DEMO -->
+    
+<!-- MITRE ATT&CK MAPPING SECTION -->
+<section id="mitre">
+    <h2>MITRE ATT&CK Technique Mapping</h2>
+
+    <div class="card">
+        <h3>T1566.001 – Spearphishing Attachment</h3>
+        <p><strong>Stage:</strong> Initial Access</p>
+        <p>Attackers may use malicious email attachments to deliver malware.</p>
+        <p><strong>Detection:</strong> Monitor suspicious email attachments and unusual file execution.</p>
+    </div>
+
+    <div class="card">
+        <h3>T1059.001 – PowerShell</h3>
+        <p><strong>Stage:</strong> Execution</p>
+        <p>PowerShell may be abused to execute malicious commands or scripts.</p>
+        <p><strong>Detection:</strong> Review PowerShell logs and suspicious command-line activity.</p>
+    </div>
+
+    <div class="card">
+        <h3>T1055 – Process Injection</h3>
+        <p><strong>Stage:</strong> Defense Evasion</p>
+        <p>Malware may attempt to execute code within another process.</p>
+        <p><strong>Detection:</strong> Monitor unusual process behavior and memory activity.</p>
+    </div>
+
+    <div class="card">
+        <h3>T1071.001 – Web Protocols</h3>
+        <p><strong>Stage:</strong> Command and Control</p>
+        <p>Malware may communicate with a command-and-control server using web protocols.</p>
+        <p><strong>Detection:</strong> Analyse network traffic for unusual HTTP or HTTPS connections.</p>
+    </div>
+
+    <p><small>Note: These are potential techniques for investigation, not confirmed findings for every Remcos RAT sample.</small></p>
+</section>
+<!-- END MITRE ATT&CK SECTION -->
+
 
 </body>
 </html>
