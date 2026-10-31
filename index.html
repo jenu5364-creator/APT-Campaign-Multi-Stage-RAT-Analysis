@@ -140,6 +140,7 @@
     <a href="#tools">Tools</a>
     <a href="#conclusion">Conclusion</a>
     <a href="#architecture">C2 Architecture</a>
+    <a href="#traffic">Traffic Analysis</a>
 </nav>
 
 <div class="hero" id="home">
@@ -326,6 +327,95 @@
     <p><small>Educational architecture illustration. Actual communication depends on the malware sample and its configuration.</small></p>
 </section>
 <!-- END C2 ARCHITECTURE -->
+
+<!-- C2 NETWORK TRAFFIC ANALYSIS -->
+<section id="traffic">
+    <h2>C2 Network Traffic Analysis</h2>
+
+    <div class="card">
+        <h3>Simulated Network Logs</h3>
+        <p>Analyse sample network connections to identify suspicious communication patterns.</p>
+
+        <div style="overflow-x:auto;">
+            <table id="trafficTable" style="width:100%; border-collapse:collapse; text-align:left;">
+                <tr style="background:#10365a; color:#00d9ff;">
+                    <th style="padding:12px;">Source IP</th>
+                    <th style="padding:12px;">Destination IP</th>
+                    <th style="padding:12px;">Time</th>
+                    <th style="padding:12px;">Protocol</th>
+                    <th style="padding:12px;">Status</th>
+                </tr>
+
+                <tr class="normal">
+                    <td style="padding:12px;">192.0.2.10</td>
+                    <td style="padding:12px;">198.51.100.25</td>
+                    <td style="padding:12px;">10:00:00</td>
+                    <td style="padding:12px;">HTTPS</td>
+                    <td style="padding:12px;">Normal sample</td>
+                </tr>
+
+                <tr class="suspicious">
+                    <td style="padding:12px;">192.0.2.10</td>
+                    <td style="padding:12px;">203.0.113.8</td>
+                    <td style="padding:12px;">10:00:30</td>
+                    <td style="padding:12px;">HTTPS</td>
+                    <td style="padding:12px;">Suspicious pattern</td>
+                </tr>
+
+                <tr class="suspicious">
+                    <td style="padding:12px;">192.0.2.10</td>
+                    <td style="padding:12px;">203.0.113.8</td>
+                    <td style="padding:12px;">10:01:00</td>
+                    <td style="padding:12px;">HTTPS</td>
+                    <td style="padding:12px;">Suspicious pattern</td>
+                </tr>
+
+                <tr class="suspicious">
+                    <td style="padding:12px;">192.0.2.10</td>
+                    <td style="padding:12px;">203.0.113.8</td>
+                    <td style="padding:12px;">10:01:30</td>
+                    <td style="padding:12px;">HTTPS</td>
+                    <td style="padding:12px;">Suspicious pattern</td>
+                </tr>
+            </table>
+        </div>
+
+        <button class="btn" onclick="analyseTraffic()">
+            Analyse Network Logs
+        </button>
+
+        <div id="trafficResults" style="margin-top:20px;">
+            <p>Click the button to analyse the simulated logs.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+function analyseTraffic() {
+    const suspiciousRows =
+        document.querySelectorAll("#trafficTable .suspicious");
+
+    suspiciousRows.forEach(row => {
+        row.style.background = "#512b36";
+        row.style.color = "#ffffff";
+    });
+
+    document.getElementById("trafficResults").innerHTML = `
+        <h3 style="color:#00d9ff;">Analysis Results</h3>
+        <p><strong>Total connections:</strong> 4</p>
+        <p><strong>Suspicious connections:</strong> 3</p>
+        <p><strong>Protocol:</strong> HTTPS</p>
+        <p style="color:#ff7777;font-weight:bold;">
+            Regular 30-second communication pattern detected.
+        </p>
+        <p>Analyst recommendation: Investigate the destination,
+        process activity and related network logs.</p>
+        <small>Educational simulation only. These IP addresses are reserved
+        documentation examples, not real C2 infrastructure.</small>
+    `;
+}
+</script>
+<!-- END C2 NETWORK TRAFFIC ANALYSIS -->
 
     
 <!-- C2 BEACONING DETECTION DEMO -->
