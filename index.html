@@ -273,5 +273,82 @@
     <p>Project Lead: Janifar J.</p>
 </footer>
 
+    
+<!-- C2 BEACONING DETECTION DEMO -->
+<section id="beacon">
+    <h2>C2 Beaconing Detection Demo</h2>
+
+    <div class="card">
+        <h3>Simulated Network Traffic Analysis</h3>
+
+        <p>
+            This demonstration analyses simulated connection
+            timestamps to identify regular communication intervals.
+        </p>
+
+        <button class="btn" onclick="detectBeaconing()">
+            Analyse Network Traffic
+        </button>
+
+        <div id="beaconResults" style="margin-top:20px;">
+            <p>Click the button to start the analysis.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+function detectBeaconing() {
+
+    // Simulated connection timestamps (seconds)
+    const connections = [
+        0, 30, 60, 90, 120, 150, 180
+    ];
+
+    let intervals = [];
+
+    for (let i = 1; i < connections.length; i++) {
+        intervals.push(connections[i] - connections[i - 1]);
+    }
+
+    const average = intervals.reduce((a, b) => a + b, 0)
+                    / intervals.length;
+
+    const regular = intervals.every(
+        interval => Math.abs(interval - average) <= 2
+    );
+
+    let output = `
+        <h3>Analysis Results</h3>
+        <p><strong>Total connections:</strong> ${connections.length}</p>
+        <p><strong>Connection intervals:</strong> ${intervals.join(", ")} seconds</p>
+        <p><strong>Average interval:</strong> ${average.toFixed(2)} seconds</p>
+    `;
+
+    if (regular) {
+        output += `
+            <p style="color:#ff6464;font-weight:bold;">
+                Possible regular beaconing pattern detected!
+            </p>
+        `;
+    } else {
+        output += `
+            <p style="color:#70db91;font-weight:bold;">
+                No regular beaconing pattern detected in this sample.
+            </p>
+        `;
+    }
+
+    output += `
+        <p><small>
+        Educational simulation only. Regular intervals are a
+        possible indicator, not proof of malicious activity.
+        </small></p>
+    `;
+
+    document.getElementById("beaconResults").innerHTML = output;
+}
+</script>
+<!-- END C2 BEACONING DEMO -->
+
 </body>
 </html>
