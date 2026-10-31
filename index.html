@@ -139,6 +139,7 @@
     <a href="#c2">C2 Analysis</a>
     <a href="#tools">Tools</a>
     <a href="#conclusion">Conclusion</a>
+    <a href="#architecture">C2 Architecture</a>
 </nav>
 
 <div class="hero" id="home">
@@ -272,6 +273,59 @@
     <p>Academic Cybersecurity Project | Group 1</p>
     <p>Project Lead: Janifar J.</p>
 </footer>
+
+<!-- C2 ARCHITECTURE -->
+<section id="architecture">
+    <h2>Remcos RAT – C2 Architecture</h2>
+    <p>Understanding how malware communicates with its Command and Control server.</p>
+
+    <div class="card">
+        <h3>Attack Communication Flow</h3>
+
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:15px; text-align:center;">
+
+            <div style="background:#102b50; padding:20px; border-radius:12px; flex:1; min-width:130px;">
+                <h3>👨‍💻 Attacker</h3>
+                <p>Sends commands</p>
+            </div>
+
+            <h2 style="color:#00d9ff;">→</h2>
+
+            <div style="background:#102b50; padding:20px; border-radius:12px; flex:1; min-width:130px;">
+                <h3>🖥️ C2 Server</h3>
+                <p>Relays commands</p>
+            </div>
+
+            <h2 style="color:#00d9ff;">→</h2>
+
+            <div style="background:#102b50; padding:20px; border-radius:12px; flex:1; min-width:130px;">
+                <h3>💻 Infected Host</h3>
+                <p>Runs the RAT</p>
+            </div>
+
+            <h2 style="color:#00d9ff;">→</h2>
+
+            <div style="background:#102b50; padding:20px; border-radius:12px; flex:1; min-width:130px;">
+                <h3>📁 Data</h3>
+                <p>Potential data theft</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>How It Works</h3>
+        <ol>
+            <li>Initial infection through a malicious file or link.</li>
+            <li>Malware executes on the victim's system.</li>
+            <li>The infected host attempts to contact the C2 server.</li>
+            <li>The server may send commands to the infected host.</li>
+            <li>Data may be transferred back to the attacker.</li>
+        </ol>
+    </div>
+
+    <p><small>Educational architecture illustration. Actual communication depends on the malware sample and its configuration.</small></p>
+</section>
+<!-- END C2 ARCHITECTURE -->
 
     
 <!-- C2 BEACONING DETECTION DEMO -->
